@@ -36,25 +36,29 @@ public class UserInput {
         System.out.print("Input Cat's name: \n>");
         String catName = keyboard.nextLine();
         System.out.print("Input mice killed by Cat\n>");
-        int killed = Integer.parseInt(keyboard.nextLine());
-        Cat cat = new Cat(killed, catName);
-        zoo.add(cat);
+        try {
+            int killed = TypeVerifier.verifyInt(keyboard.nextLine());
+            Cat cat = new Cat(killed, catName);
+            zoo.add(cat);
+        } catch (BadInputException b)
+        {
+            System.out.println(b.getMessage());
+        }
+
     }
 
     public void createDog(ArrayList<Talkable> zoo) {
         Scanner keyboard = new Scanner(System.in);
-        Boolean friendly;
         System.out.print("Input Dog's name: \n>");
         String dogName = keyboard.nextLine();
         System.out.print("Friendly (Y/N)\n>");
-        String friendlyChoice = keyboard.nextLine();
-        if(friendlyChoice.toUpperCase().equals("Y") )
-        {
-            friendly = true;
+        try {
+            boolean friendly = TypeVerifier.verifyBool(keyboard.nextLine());
+            Dog dog = new Dog(friendly, dogName);
+            zoo.add(dog);
+        } catch (BadInputException b) {
+            System.out.println(b.getMessage());
         }
-        else{ friendly = false;}
-        Dog dog = new Dog(friendly, dogName);
-        zoo.add(dog);
     }
 
     public void createTeacher(ArrayList<Talkable> zoo) {
