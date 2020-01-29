@@ -7,9 +7,10 @@ public class UserInput {
     public UserInput() {
     }
 
-    public void askQuestion() {
+    public void askQuestion(ArrayList<Talkable> zoo) {
         System.out.println("What type of animal do you want to create?");
         System.out.print("1. Cat\n2. Dog\n3. Teacher\n>");
+        userAnimal(zoo);
     }
 
     public void userAnimal (ArrayList<Talkable> zoo) {

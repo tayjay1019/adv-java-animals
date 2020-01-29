@@ -12,11 +12,7 @@ public class Main {
 
 
         UserInput uI = new UserInput();
-        uI.askQuestion();
-        uI.userAnimal(zoo);
-
-
-
+        uI.askQuestion(zoo);
 
         // Lines to Replace Begin Here
 //        zoo.add(new Dog(true, "Bean"));
