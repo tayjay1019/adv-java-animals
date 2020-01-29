@@ -31,17 +31,38 @@ public class UserInput {
     }
 
     public void createCat(ArrayList<Talkable> zoo) {
-        Cat cat = new Cat(0, "Trixy");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input Cat's name: \n>");
+        String catName = keyboard.nextLine();
+        System.out.print("Input mice killed by Cat\n>");
+        int killed = Integer.parseInt(keyboard.nextLine());
+        Cat cat = new Cat(killed, catName);
         zoo.add(cat);
     }
 
     public void createDog(ArrayList<Talkable> zoo) {
-        Dog dog = new Dog(true, "Whiskey");
+        Scanner keyboard = new Scanner(System.in);
+        Boolean friendly;
+        System.out.print("Input Dog's name: \n>");
+        String dogName = keyboard.nextLine();
+        System.out.print("Friendly (Y/N)\n>");
+        String friendlyChoice = keyboard.nextLine();
+        if(friendlyChoice.toUpperCase().equals("Y") )
+        {
+            friendly = true;
+        }
+        else{ friendly = false;}
+        Dog dog = new Dog(friendly, dogName);
         zoo.add(dog);
     }
 
     public void createTeacher(ArrayList<Talkable> zoo) {
-        Teacher teacher = new Teacher(32, "Matt");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input Teacher's name: \n>");
+        String teacherName = keyboard.nextLine();
+        System.out.print("Input Teacher's age\n>");
+        int age = Integer.parseInt(keyboard.nextLine());
+        Teacher teacher = new Teacher(age, teacherName);
         zoo.add(teacher);
     }
 
